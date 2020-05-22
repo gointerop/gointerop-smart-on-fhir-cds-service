@@ -1,0 +1,44 @@
+extends layout
+
+block content
+  h1= title
+  h2 Loaded Hooks (#[a(href='cds-services') discover])
+  table
+    thead
+      tr
+        th Name
+        th Id
+        th Hook
+        th CQL Hooks Endpoint
+    tbody
+      each hook in hooks
+        tr
+          td #{hook.title}
+          td #{hook.id}
+          td #{hook.hook}
+          - var ep = `${req.baseUrl}/cds-services/${hook.id}`;
+          td: a(href=ep) #{ep}
+  |
+  h2 Loaded CQL libraries
+  table
+    thead
+      tr
+        th Name
+        th Version
+        th CQL Exec Endpoint
+    tbody
+      each lib in libraries
+        tr
+          td #{lib.source.library.identifier.id}
+          td #{lib.source.library.identifier.version}
+          - var ep = `${req.baseUrl}/api/library/${lib.source.library.identifier.id}/version/${lib.source.library.identifier.version}`;
+          td: a(href=ep) #{ep}
+  |
+  each lib in libraries
+    h2 #{lib.source.library.identifier.id} v#{lib.source.library.identifier.version}
+    h3 Returnable Expressions
+    ul
+      each name in expressions[`${lib.source.library.identifier.id}.${lib.source.library.identifier.version}`]
+        li #{name}
+      else
+        li n/a

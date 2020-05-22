@@ -1,0 +1,25 @@
+{
+  "id": "gointerop_diabetes_type_2_v0_0_1",
+  "hook": "gointerop_diabetes_type_2_v0_0_1-view",
+  "title": "Hook de diabetes tipo 2 de demonstracao",
+  "description": "Hook de diabetes tipo 2 implementado para modo de demonstracao do CDS Hooks da GOInterop",
+  "_config": {
+    "cards": [{
+      "card": {
+        "summary": "${Recommendation}",
+        "indicator": "critical",
+        "detail": "${Rationale}",
+        "source": {
+          "label": "GOIntero CDS Hooks - Notificação de Diabetes tipo 2",
+          "url": "https://gointerop.com/cdsconnect/artifact/gointerop_diabetes_type_2_v0_0_1"
+        }
+      } 
+    }],
+    "cql": {
+      "library": {
+        "id": "gointerop-diabetes-type-2",
+        "version": "0.0.1"
+      }
+    }
+  }
+}

@@ -1,0 +1,520 @@
+{
+   "library" : {
+      "annotation" : [ {
+         "startLine" : 19,
+         "startChar" : 26,
+         "endLine" : 19,
+         "endChar" : 87,
+         "message" : "Could not resolve membership operator for terminology target of the retrieve.",
+         "errorType" : "semantic",
+         "errorSeverity" : "warning",
+         "type" : "CqlToElmError"
+      } ],
+      "identifier" : {
+         "id" : "gointerop-diabetes-type-2",
+         "version" : "0.0.1"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "1",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.0"
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "2",
+            "locator" : "5:1-5:56",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "FHIRHelpers",
+            "version" : "4.0.0"
+         }, {
+            "localId" : "3",
+            "locator" : "6:1-6:69",
+            "localIdentifier" : "C3F",
+            "path" : "CDS_Connect_Commons_for_FHIRv400",
+            "version" : "1.0.1"
+         }, {
+            "localId" : "4",
+            "locator" : "7:1-7:60",
+            "localIdentifier" : "Convert",
+            "path" : "CDS_Connect_Conversions",
+            "version" : "1"
+         } ]
+      },
+      "codeSystems" : {
+         "def" : [ {
+            "localId" : "5",
+            "locator" : "8:1-8:38",
+            "name" : "LOINC",
+            "id" : "http://loinc.org",
+            "accessLevel" : "Public",
+            "resultTypeSpecifier" : {
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "name" : "{urn:hl7-org:elm-types:r1}Code",
+                  "type" : "NamedTypeSpecifier"
+               }
+            }
+         } ]
+      },
+      "codes" : {
+         "def" : [ {
+            "localId" : "7",
+            "locator" : "11:1-12:52",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "Hemoglobin A1c/Hemoglobin.total in Blood code",
+            "id" : "4548-4",
+            "display" : "Hemoglobin A1c/Hemoglobin.total in Blood",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "localId" : "6",
+               "locator" : "11:69-11:75",
+               "name" : "LOINC",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "locator" : "16:1-16:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "type" : "SingletonFrom",
+               "operand" : {
+                  "locator" : "16:1-16:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "type" : "Retrieve"
+               }
+            }
+         }, {
+            "localId" : "13",
+            "locator" : "18:1-19:96",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "Hemoglobin A1c/Hemoglobin.total in Blood",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "13",
+                  "s" : [ {
+                     "value" : [ "define ","\"Hemoglobin A1c/Hemoglobin.total in Blood\"",":\r\n  " ]
+                  }, {
+                     "r" : "12",
+                     "s" : [ {
+                        "r" : "10",
+                        "s" : [ {
+                           "r" : "8",
+                           "s" : [ {
+                              "value" : [ "C3F" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "10",
+                           "s" : [ {
+                              "value" : [ "HighestObservation","(" ]
+                           }, {
+                              "r" : "9",
+                              "s" : [ {
+                                 "value" : [ "[","Observation",": " ]
+                              }, {
+                                 "s" : [ {
+                                    "value" : [ "\"Hemoglobin A1c/Hemoglobin.total in Blood code\"" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "]" ]
+                              } ]
+                           }, {
+                              "value" : [ ")" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ " ",">"," " ]
+                     }, {
+                        "r" : "11",
+                        "s" : [ {
+                           "value" : [ "7 ","'%'" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "12",
+               "locator" : "19:3-19:96",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "type" : "Greater",
+               "signature" : [ {
+                  "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "type" : "NamedTypeSpecifier"
+               }, {
+                  "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "type" : "NamedTypeSpecifier"
+               } ],
+               "operand" : [ {
+                  "localId" : "10",
+                  "locator" : "19:3-19:88",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "name" : "HighestObservation",
+                  "libraryName" : "C3F",
+                  "type" : "FunctionRef",
+                  "signature" : [ {
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "name" : "{http://hl7.org/fhir}Observation",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  } ],
+                  "operand" : [ {
+                     "localId" : "9",
+                     "locator" : "19:26-19:87",
+                     "dataType" : "{http://hl7.org/fhir}Observation",
+                     "codeProperty" : "code",
+                     "type" : "Retrieve",
+                     "resultTypeSpecifier" : {
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "name" : "{http://hl7.org/fhir}Observation",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     },
+                     "codes" : {
+                        "type" : "ToList",
+                        "operand" : {
+                           "locator" : "19:40-19:86",
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                           "name" : "Hemoglobin A1c/Hemoglobin.total in Blood code",
+                           "type" : "CodeRef"
+                        }
+                     }
+                  } ]
+               }, {
+                  "localId" : "11",
+                  "locator" : "19:92-19:96",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "value" : 7,
+                  "unit" : "%",
+                  "type" : "Quantity"
+               } ]
+            }
+         }, {
+            "localId" : "15",
+            "locator" : "22:1-23:44",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "MeetsInclusionCriteria",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "15",
+                  "s" : [ {
+                     "value" : [ "define ","\"MeetsInclusionCriteria\"",":\r\n  " ]
+                  }, {
+                     "r" : "14",
+                     "s" : [ {
+                        "value" : [ "\"Hemoglobin A1c/Hemoglobin.total in Blood\"" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "14",
+               "locator" : "23:3-23:44",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "name" : "Hemoglobin A1c/Hemoglobin.total in Blood",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "17",
+            "locator" : "25:1-26:27",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "InPopulation",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "17",
+                  "s" : [ {
+                     "value" : [ "define ","\"InPopulation\"",":\r\n   " ]
+                  }, {
+                     "r" : "16",
+                     "s" : [ {
+                        "value" : [ "\"MeetsInclusionCriteria\"" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "16",
+               "locator" : "26:4-26:27",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "name" : "MeetsInclusionCriteria",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "22",
+            "locator" : "28:1-30:11",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+            "name" : "Recommendation",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "22",
+                  "s" : [ {
+                     "value" : [ "define ","\"Recommendation\"",": \r\n  " ]
+                  }, {
+                     "r" : "21",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "18",
+                        "s" : [ {
+                           "value" : [ "\"InPopulation\"" ]
+                        } ]
+                     }, {
+                        "value" : [ " then " ]
+                     }, {
+                        "r" : "19",
+                        "s" : [ {
+                           "value" : [ "'O paciente provavelmente tem Diabetes Tipo 2.'" ]
+                        } ]
+                     }, {
+                        "r" : "20",
+                        "value" : [ "\r\n  else ","null" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "21",
+               "locator" : "29:3-30:11",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+               "type" : "If",
+               "condition" : {
+                  "asType" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "As",
+                  "operand" : {
+                     "localId" : "18",
+                     "locator" : "29:6-29:19",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "name" : "InPopulation",
+                     "type" : "ExpressionRef"
+                  }
+               },
+               "then" : {
+                  "localId" : "19",
+                  "locator" : "29:26-29:249",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                  "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                  "value" : "O paciente provavelmente tem Diabetes Tipo 2.",
+                  "type" : "Literal"
+               },
+               "else" : {
+                  "asType" : "{urn:hl7-org:elm-types:r1}String",
+                  "type" : "As",
+                  "operand" : {
+                     "localId" : "20",
+                     "locator" : "30:8-30:11",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Any",
+                     "type" : "Null"
+                  }
+               }
+            }
+         }, {
+            "localId" : "27",
+            "locator" : "32:1-34:11",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+            "name" : "Rationale",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "27",
+                  "s" : [ {
+                     "value" : [ "define ","\"Rationale\"",":\r\n  " ]
+                  }, {
+                     "r" : "26",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "23",
+                        "s" : [ {
+                           "value" : [ "\"InPopulation\"" ]
+                        } ]
+                     }, {
+                        "value" : [ " then " ]
+                     }, {
+                        "r" : "24",
+                        "s" : [ {
+                           "value" : [ "'O paciente deve escolher carboidratos saudáveis, como frutas, vegetais, grãos, com pouca gordura ou desnatados. Esses devem fazer parte do seu plano de refeição. Idealmente a glicose deve ser mantida em níveis normais (pré-prandiais entre 90-130 mg/dL e hemoglobina glicada [HbA1c] menores que 7%. No entanto, foco em glicose apenas não é suficiente para um tratamento adequado de pacientes com diabetes mellitus.'" ]
+                        } ]
+                     }, {
+                        "r" : "25",
+                        "value" : [ "\r\n  else ","null" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "26",
+               "locator" : "33:3-34:11",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+               "type" : "If",
+               "condition" : {
+                  "asType" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "As",
+                  "operand" : {
+                     "localId" : "23",
+                     "locator" : "33:6-33:19",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "name" : "InPopulation",
+                     "type" : "ExpressionRef"
+                  }
+               },
+               "then" : {
+                  "localId" : "24",
+                  "locator" : "33:26-33:274",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                  "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                  "value" : "O paciente deve escolher carboidratos saudáveis, como frutas, vegetais, grãos, com pouca gordura ou desnatados. Esses devem fazer parte do seu plano de refeição. Idealmente a glicose deve ser mantida em níveis normais (pré-prandiais entre 90-130 mg/dL e hemoglobina glicada [HbA1c] menores que 7%. No entanto, foco em glicose apenas não é suficiente para um tratamento adequado de pacientes com diabetes mellitus.",
+                  "type" : "Literal"
+               },
+               "else" : {
+                  "asType" : "{urn:hl7-org:elm-types:r1}String",
+                  "type" : "As",
+                  "operand" : {
+                     "localId" : "25",
+                     "locator" : "34:8-34:11",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Any",
+                     "type" : "Null"
+                  }
+               }
+            }
+         }, {
+            "localId" : "33",
+            "locator" : "36:1-39:11",
+            "name" : "Errors",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "33",
+                  "s" : [ {
+                     "value" : [ "define ","\"Errors\"",":\r\n  " ]
+                  }, {
+                     "r" : "32",
+                     "s" : [ {
+                        "r" : "28",
+                        "value" : [ "if ","null"," then\r\n    " ]
+                     }, {
+                        "r" : "30",
+                        "s" : [ {
+                           "value" : [ "{" ]
+                        }, {
+                           "r" : "29",
+                           "s" : [ {
+                              "value" : [ "''" ]
+                           } ]
+                        }, {
+                           "value" : [ "}" ]
+                        } ]
+                     }, {
+                        "r" : "31",
+                        "value" : [ "\r\n  else ","null" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "resultTypeSpecifier" : {
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "name" : "{urn:hl7-org:elm-types:r1}String",
+                  "type" : "NamedTypeSpecifier"
+               }
+            },
+            "expression" : {
+               "localId" : "32",
+               "locator" : "37:3-39:11",
+               "type" : "If",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}String",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               },
+               "condition" : {
+                  "asType" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "As",
+                  "operand" : {
+                     "localId" : "28",
+                     "locator" : "37:6-37:9",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Any",
+                     "type" : "Null"
+                  }
+               },
+               "then" : {
+                  "localId" : "30",
+                  "locator" : "38:5-38:8",
+                  "type" : "List",
+                  "resultTypeSpecifier" : {
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "name" : "{urn:hl7-org:elm-types:r1}String",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "element" : [ {
+                     "localId" : "29",
+                     "locator" : "38:6-38:7",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "",
+                     "type" : "Literal"
+                  } ]
+               },
+               "else" : {
+                  "type" : "As",
+                  "operand" : {
+                     "localId" : "31",
+                     "locator" : "39:8-39:11",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Any",
+                     "type" : "Null"
+                  },
+                  "asTypeSpecifier" : {
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "name" : "{urn:hl7-org:elm-types:r1}String",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  }
+               }
+            }
+         } ]
+      }
+   }
+}
