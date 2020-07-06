@@ -1,0 +1,25 @@
+{
+  "id": "gointerop_greeting_v0_0_1",
+  "hook": "gointerop_greeting_v0_0_1-view",
+  "title": "Hook de recepção de paciente ao prontuário distribuído",
+  "description": "Hook de recepção de paciente ao prontuário distribuído implementado para modo de demonstracao do CDS Hooks da GOInterop",
+  "_config": {
+    "cards": [{
+      "card": {
+        "summary": "Seja bem vindo!",
+        "indicator": "info",
+        "detail": "Essa é uma típica notificação de CDS Hooks da GOInterop! Vamos prover apoio à decisão assistencial (prescrição médica, procedimentos, etc) e back-office (faturamento, elegibilidade e recurso de glosa).",
+        "source": {
+          "label": "GOInterop CDS Hooks - Recepção de paciente",
+          "url": "https://gointerop.com/cdsconnect/artifact/gointerop_diabetes_type_2_v0_0_1"
+        }
+      } 
+    }],
+    "cql": {
+      "library": {
+        "id": "gointerop-greeting",
+        "version": "0.0.1"
+      }
+    }
+  }
+}

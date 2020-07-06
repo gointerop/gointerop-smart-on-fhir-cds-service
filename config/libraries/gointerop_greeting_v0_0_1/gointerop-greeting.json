@@ -1,0 +1,236 @@
+{
+   "library" : {
+      "identifier" : {
+         "id" : "gointerop-greeting",
+         "version" : "0.0.1"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "1",
+            "locator" : "2:1-2:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.0"
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "2",
+            "locator" : "3:1-3:56",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "FHIRHelpers",
+            "version" : "4.0.0"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "locator" : "4:1-4:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "type" : "SingletonFrom",
+               "operand" : {
+                  "locator" : "4:1-4:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "type" : "Retrieve"
+               }
+            }
+         }, {
+            "localId" : "4",
+            "locator" : "7:1-8:6",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Any",
+            "name" : "InPopulation",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "4",
+                  "s" : [ {
+                     "r" : "3",
+                     "value" : [ "define ","\"InPopulation\"",":\r\n  ","null" ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "3",
+               "locator" : "8:3-8:6",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Any",
+               "type" : "Null"
+            }
+         }, {
+            "localId" : "9",
+            "locator" : "10:1-12:11",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+            "name" : "Recommendation",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "9",
+                  "s" : [ {
+                     "value" : [ "define ","\"Recommendation\"",": \r\n  " ]
+                  }, {
+                     "r" : "8",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "5",
+                        "s" : [ {
+                           "value" : [ "\"InPopulation\"" ]
+                        } ]
+                     }, {
+                        "value" : [ " then " ]
+                     }, {
+                        "r" : "6",
+                        "s" : [ {
+                           "value" : [ "'Seja bem vindo!'" ]
+                        } ]
+                     }, {
+                        "r" : "7",
+                        "value" : [ "\r\n  else ","null" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "8",
+               "locator" : "11:3-12:11",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+               "type" : "If",
+               "condition" : {
+                  "asType" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "As",
+                  "operand" : {
+                     "localId" : "5",
+                     "locator" : "11:6-11:19",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Any",
+                     "name" : "InPopulation",
+                     "type" : "ExpressionRef"
+                  }
+               },
+               "then" : {
+                  "localId" : "6",
+                  "locator" : "11:26-11:42",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                  "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                  "value" : "Seja bem vindo!",
+                  "type" : "Literal"
+               },
+               "else" : {
+                  "asType" : "{urn:hl7-org:elm-types:r1}String",
+                  "type" : "As",
+                  "operand" : {
+                     "localId" : "7",
+                     "locator" : "12:8-12:11",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Any",
+                     "type" : "Null"
+                  }
+               }
+            }
+         }, {
+            "localId" : "14",
+            "locator" : "15:1-17:11",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+            "name" : "Rationale",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "14",
+                  "s" : [ {
+                     "value" : [ "define ","\"Rationale\"",":\r\n  " ]
+                  }, {
+                     "r" : "13",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "10",
+                        "s" : [ {
+                           "value" : [ "\"InPopulation\"" ]
+                        } ]
+                     }, {
+                        "value" : [ " then " ]
+                     }, {
+                        "r" : "11",
+                        "s" : [ {
+                           "value" : [ "'Essa é uma típica notificação de CDS Hooks da GOInterop! Vamos prover apoio à decisão assistencial (prescrição médica, procedimentos, etc) e back-office (faturamento, elegibilidade e recurso de glosa).'" ]
+                        } ]
+                     }, {
+                        "r" : "12",
+                        "value" : [ "\r\n  else ","null" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "13",
+               "locator" : "16:3-17:11",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+               "type" : "If",
+               "condition" : {
+                  "asType" : "{urn:hl7-org:elm-types:r1}Boolean",
+                  "type" : "As",
+                  "operand" : {
+                     "localId" : "10",
+                     "locator" : "16:6-16:19",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Any",
+                     "name" : "InPopulation",
+                     "type" : "ExpressionRef"
+                  }
+               },
+               "then" : {
+                  "localId" : "11",
+                  "locator" : "16:26-16:228",
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                  "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                  "value" : "Essa é uma típica notificação de CDS Hooks da GOInterop! Vamos prover apoio à decisão assistencial (prescrição médica, procedimentos, etc) e back-office (faturamento, elegibilidade e recurso de glosa).",
+                  "type" : "Literal"
+               },
+               "else" : {
+                  "asType" : "{urn:hl7-org:elm-types:r1}String",
+                  "type" : "As",
+                  "operand" : {
+                     "localId" : "12",
+                     "locator" : "17:8-17:11",
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Any",
+                     "type" : "Null"
+                  }
+               }
+            }
+         }, {
+            "localId" : "16",
+            "locator" : "19:1-20:6",
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Any",
+            "name" : "Errors",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "16",
+                  "s" : [ {
+                     "r" : "15",
+                     "value" : [ "define ","\"Errors\"",":\r\n  ","null" ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "15",
+               "locator" : "20:3-20:6",
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Any",
+               "type" : "Null"
+            }
+         } ]
+      }
+   }
+}
