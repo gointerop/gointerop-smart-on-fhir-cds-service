@@ -28,7 +28,7 @@ spec:
   selector:
     app: gointerop-smart-on-fhir-cds
   ports:
-    - port: 3000
+    - port: 8080
       targetPort: 80
   type: ClusterIP
 ---
@@ -43,4 +43,4 @@ spec:
       - path:
         backend:
           serviceName: gointerop-smart-on-fhir-cds-service
-          servicePort: 3000
+          servicePort: 8080

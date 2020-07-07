@@ -37,7 +37,7 @@ COPY ./config /usr/src/app/config
 RUN yarn cache clean
 
 # Expose the server port
-EXPOSE 3000
+EXPOSE 8080
 
 # Create a volume for the VSAC cache
 VOLUME ["/usr/src/app/.vsac_cache"]
