@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  gointerop-smart-on-fhir-cds-service:
+    image: gointerop/smart-on-fhir-cds-service
+    ports:
+      - '3000:3000'
+    networks:
+      - gointerop-network
+    stdin_open: true
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    command: ["/bin/sh", "-c", "yarn start"]
+networks:
+  gointerop-network:

@@ -1,4 +1,4 @@
-FROM keymetrics/pm2:8-alpine
+FROM keymetrics/pm2:10-alpine
 
 ARG NODE_ENV
 ENV NODE_ENV $NODE_ENV
@@ -8,6 +8,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY ./package.json .
 COPY ./yarn.lock .
+RUN apk add yarn
 RUN yarn install --production
 
 # Now copy over the remaining relevant files
@@ -30,6 +31,7 @@ RUN mkdir -p /usr/src/app/config/hooks
 RUN chown node /usr/src/app/config/hooks
 RUN mkdir -p /usr/src/app/.vsac_cache
 RUN chown node /usr/src/app/.vsac_cache
+COPY ./config /usr/src/app/config
 
 # Clean up a bit to save space
 RUN yarn cache clean

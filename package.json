@@ -1,6 +1,6 @@
 {
   "name": "cql-exec-service",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "A RESTful CQL execution service",
   "license": "Apache-2.0",
   "repository": {
@@ -22,7 +22,7 @@
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
     "cql-exec-fhir": "^1.3.1",
-    "cql-exec-vsac": "^1.1.0",
+    "cql-exec-vsac": "^1.1.1",
     "cql-execution": "^1.3.8",
     "debug": "~2.6.0",
     "express": "^4.16.3",
